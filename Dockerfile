@@ -1,23 +1,12 @@
 FROM ubuntu:18.10
 MAINTAINER nmartinez@arsys.es
 
-RUN useradd nuria
-
 RUN apt-get update
 RUN apt-get install nginx -y
 
-RUN echo '<marquee>Hello Arsys!!!</marquee>' \
-    > /var/www/html/index.html
+#RUN echo '<marquee>Hello Arsys!!!</marquee>' \
+#   > /var/www/html/index.html
 
-RUN apt-get update
+COPY index.html /var/www/html/
 
 EXPOSE 80
-
-ENV DATABASE_IP 192.167.2.9
-
-RUN usermod -aG root nuria
-USER nuria
-
-VOLUME ["/my-data"]
-
-#ENTRYPOINT ["nginx","-g daemon off;" ]
