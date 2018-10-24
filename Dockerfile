@@ -18,4 +18,6 @@ ENV DATABASE_IP 192.167.2.9
 RUN usermod -aG root nuria
 USER nuria
 
+VOLUME ["/my-data"]
+
 #ENTRYPOINT ["nginx","-g daemon off;" ]
